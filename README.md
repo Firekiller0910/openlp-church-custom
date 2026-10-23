@@ -4,7 +4,9 @@ A customized OpenLP with a navy interface, remembered hidden song slides, the up
 
 ## Install on another computer
 
-Once a release is published, open this repository's **Releases** page and download:
+**[Download for Windows](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-Windows-Setup.exe)** · **[Download for Apple silicon Mac](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-macOS-Apple-Silicon.zip)** · **[All releases and instructions](https://github.com/Firekiller0910/openlp-church-custom/releases)**
+
+Sign into your GitHub account to access this private repository and its downloads. Choose the package for your computer:
 
 - **OpenLP-Custom-Windows-Setup.exe**: normal Windows installer. Run it and follow setup.
 - **OpenLP-Custom-macOS-Apple-Silicon.zip**: unzip on an Apple silicon Mac and move the app to Applications. Requires macOS 13+. This unsigned Mac package still needs testing on a Mac.
