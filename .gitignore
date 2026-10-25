@@ -55,3 +55,7 @@ openlp-test-projectordb.sqlite
 .DS_Store
 OpenLP.spec
 **/.version
+
+# Mac release staging and generated packages
+/work/distributions/
+/outputs/

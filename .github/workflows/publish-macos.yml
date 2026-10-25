@@ -43,7 +43,7 @@ jobs:
       - name: Assemble app and installer
         run: |
           mkdir -p outputs/OpenLP-Test/source-modern
-          git archive HEAD | tar -x -C outputs/OpenLP-Test/source-modern
+          git -c safe.directory="$GITHUB_WORKSPACE" archive HEAD | tar -x -C outputs/OpenLP-Test/source-modern
           printf '3.1.99' > outputs/OpenLP-Test/source-modern/openlp/.version
           python3 packaging/package_macos.py
           python3 packaging/build_macos_installer.py \
