@@ -1,0 +1,228 @@
+{
+  "platform": "macOS Apple silicon (arm64), macOS 13+",
+  "upstream_commit": "19b5f21f167dd4ebf981ccb92a7e1c9edd853c30",
+  "python": {
+    "name": "cpython-3.11.17+20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "size": 26761038,
+    "browser_download_url": "https://github.com/astral-sh/python-build-standalone/releases/download/20261021/cpython-3.11.17%2B20261021-aarch64-apple-darwin-install_only_stripped.tar.gz",
+    "digest": "sha256:1d1335d9d526bc37061af3fe72b0edd88056d7e7d9488eb631946b10b4ab97bb"
+  },
+  "wheels": [
+    {
+      "name": "alembic-1.20.0-py3-none-any.whl",
+      "sha256": "77eb101048d95f982c0353e9233404889dcd7a6fc244c107836c0e2fc9cf7d9d",
+      "url": "https://files.pythonhosted.org/packages/3f/27/78a89b55b0904d222183164e079b4ca56208e94eff1d35ad1f1ad5be9b06/alembic-1.20.0-py3-none-any.whl"
+    },
+    {
+      "name": "beautifulsoup4-4.15.0-py3-none-any.whl",
+      "sha256": "d6f88de62e1d4e38ecb1077eb9724cd0eff29d2a08ca16a401e9b9e93f117cf9",
+      "url": "https://files.pythonhosted.org/packages/88/c6/92fcd42f1ba33e1184263f25bfabf3d27c383410470f169e4b8163bf9c17/beautifulsoup4-4.15.0-py3-none-any.whl"
+    },
+    {
+      "name": "blinker-1.9.0-py3-none-any.whl",
+      "sha256": "ba0efaa9080b619ff2f3459d1d500c57bddea4a6b424b60a91141db6fd2f08bc",
+      "url": "https://files.pythonhosted.org/packages/10/cb/f2ad4230dc2eb1a74edf38f1a38b9b52277f75bef262d8908e60d957e13c/blinker-1.9.0-py3-none-any.whl"
+    },
+    {
+      "name": "certifi-2026.10.19-py3-none-any.whl",
+      "sha256": "42d35340cc5b9ba78e818ddbff0c5b1c2b779de448a340fd1b989f5fa8670e1b",
+      "url": "https://files.pythonhosted.org/packages/c4/51/29046e48f693c54e5b7412216d447a1d8362c9653148d98c02cdf65fa733/certifi-2026.10.19-py3-none-any.whl"
+    },
+    {
+      "name": "chardet-7.7.0-cp311-cp311-macosx_11_0_arm64.whl",
+      "sha256": "074a5b6efd46bd35059f53a3b385349e9b9e38111063c8d2c5b36923e2e07de6",
+      "url": "https://files.pythonhosted.org/packages/bd/f7/a561c39b0b697757f27c7bd14e71cd30887a70bde4b76f0f18eb5a97d347/chardet-7.7.0-cp311-cp311-macosx_11_0_arm64.whl"
+    },
+    {
+      "name": "charset_normalizer-3.5.2-cp311-cp311-macosx_10_9_universal2.whl",
+      "sha256": "3d21b8b13c7592db2ac5e544a6d83187b995257472b0c9e8351b6d507ae37ed6",
+      "url": "https://files.pythonhosted.org/packages/22/67/6a0b94a7960d5e1b5eacd2fb529f3fccc47db4644f7f0a7cfdcfc3be578a/charset_normalizer-3.5.2-cp311-cp311-macosx_10_9_universal2.whl"
+    },
+    {
+      "name": "click-8.5.0-py3-none-any.whl",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360",
+      "url": "https://files.pythonhosted.org/packages/58/50/6c0d534c5f134586a8e1ba4e330569e32f057e33372ae556463212fb4cd3/click-8.5.0-py3-none-any.whl"
+    },
+    {
+      "name": "colorama-0.4.6-py2.py3-none-any.whl",
+      "sha256": "4f1d9991f5acc0ca119f9d443620b77f9d6b33703e51011c16baf57afb285fc6",
+      "url": "https://files.pythonhosted.org/packages/d1/d6/3965ed04c63042e047cb6a3e6ed1a63a35087b6a609aa3a15ed8ac56c221/colorama-0.4.6-py2.py3-none-any.whl"
+    },
+    {
+      "name": "flask-3.1.3-py3-none-any.whl",
+      "sha256": "f4bcbefc124291925f1a26446da31a5178f9483862233b23c0c96a20701f670c",
+      "url": "https://files.pythonhosted.org/packages/7f/9c/34f6962f9b9e9c71f6e5ed806e0d0ff03c9d1b0b2340088a0cf4bce09b18/flask-3.1.3-py3-none-any.whl"
+    },
+    {
+      "name": "flask_cors-6.0.5-py3-none-any.whl",
+      "sha256": "68fcf75693e961f3af26683b23c4b9a8fb6b64de17d20d0c37b95e8de7ab2ed8",
+      "url": "https://files.pythonhosted.org/packages/49/55/5bb1a2d918e9f02f131e47a59032bae70e48050e986e941511fd737a935c/flask_cors-6.0.5-py3-none-any.whl"
+    },
+    {
+      "name": "idna-3.20-py3-none-any.whl",
+      "sha256": "ab7ae7122974553370f0bdb919e1a960b2cd1bc1ef0276416d896db81c14582c",
+      "url": "https://files.pythonhosted.org/packages/58/a2/bb081bab032533a855d44de1d56f8e8426114ff1ba5d1f07a438a0a654f8/idna-3.20-py3-none-any.whl"
+    },
+    {
+      "name": "itsdangerous-2.2.0-py3-none-any.whl",
+      "sha256": "c6242fc49e35958c8b15141343aa660db5fc54d4f13a1db01a3f5891b98700ef",
+      "url": "https://files.pythonhosted.org/packages/04/96/92447566d16df59b2a776c0fb82dbc4d9e07cd95062562af01e408583fc4/itsdangerous-2.2.0-py3-none-any.whl"
+    },
+    {
+      "name": "jinja2-3.1.6-py3-none-any.whl",
+      "sha256": "85ece4451f492d0c13c5dd7c13a64681a86afae63a5f347908daf103ce6d2f67",
+      "url": "https://files.pythonhosted.org/packages/62/a1/3d680cbfd5f4b8f15abc1d571870c5fc3e594bb582bc3b64ea099db13e56/jinja2-3.1.6-py3-none-any.whl"
+    },
+    {
+      "name": "lxml-6.1.3-cp311-cp311-macosx_10_9_universal2.whl",
+      "sha256": "c66f858b82497173f73366795fc6ee8171620e75a338506d6b2e7bc16f5fca11",
+      "url": "https://files.pythonhosted.org/packages/96/f1/95133bde7af7afb1f5ba6090b674d826b7a518318bba54bbbb633b27865a/lxml-6.1.3-cp311-cp311-macosx_10_9_universal2.whl"
+    },
+    {
+      "name": "mako-1.4.3-py3-none-any.whl",
+      "sha256": "723296007c870bfd6b3f0c3230dba7198096e5269297ebf5e4eff9e7ffa39d4f",
+      "url": "https://files.pythonhosted.org/packages/6d/a0/053d6af3e8f871e0073b4a36732d9e65be77a72e5434c31b94f6af78a6bb/mako-1.4.3-py3-none-any.whl"
+    },
+    {
+      "name": "markupsafe-3.0.4-cp311-cp311-macosx_11_0_arm64.whl",
+      "sha256": "7d3391b2188d18737cb2fa147028b1096236eaa7e156446c650a489fa2cadc91",
+      "url": "https://files.pythonhosted.org/packages/6c/14/0b05f79b4733e264a18d08fe08fa1df7347630ff32a6cb82180d9dccec55/markupsafe-3.0.4-cp311-cp311-macosx_11_0_arm64.whl"
+    },
+    {
+      "name": "packaging-26.3-py3-none-any.whl",
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c",
+      "url": "https://files.pythonhosted.org/packages/63/34/ba1c580383c9eada3711951fef0795c80b829a078d72188184bcab9dd527/packaging-26.3-py3-none-any.whl"
+    },
+    {
+      "name": "pillow-13.0.0-cp311-cp311-macosx_11_0_arm64.whl",
+      "sha256": "37290fbef0c73e2d51d594eb78fded7dc7170d1c3ad0a890269e6fd8c8c4e061",
+      "url": "https://files.pythonhosted.org/packages/0b/d2/2c12cb4fbb5d95f38d1001ff3d95fafcb830077018cba40e56a8f932dfbc/pillow-13.0.0-cp311-cp311-macosx_11_0_arm64.whl"
+    },
+    {
+      "name": "platformdirs-4.13.5-py3-none-any.whl",
+      "sha256": "53d3ec4280b815c1e0b02edad7f9ee8fda1ba9c0865dd9c2e6e63849ce82fc1e",
+      "url": "https://files.pythonhosted.org/packages/6c/8a/1d8cb3842909dc193a73835adedf412e32e18f8ffd59f43983949622fe6f/platformdirs-4.13.5-py3-none-any.whl"
+    },
+    {
+      "name": "pyobjc_core-12.2.2-cp311-cp311-macosx_10_9_universal2.whl",
+      "sha256": "b9cdd686e32db8e451feb19f8a85bc4cd52c2893103881d04aca51e1f35371d1",
+      "url": "https://files.pythonhosted.org/packages/ce/8e/18284fec7913ef78b25a1c97f9689ebef98bc14038386191491516abeb25/pyobjc_core-12.2.2-cp311-cp311-macosx_10_9_universal2.whl"
+    },
+    {
+      "name": "pyobjc_framework_cocoa-12.2.2-cp311-cp311-macosx_10_9_universal2.whl",
+      "sha256": "851dca4c16e70b405e5cd5a8c166cf7c445ae54a4cdd95ce9a523803172f32d1",
+      "url": "https://files.pythonhosted.org/packages/f6/a7/370f12143661dff66f2c68a735938afab6530aa3b153f6a7a6f12b5eabab/pyobjc_framework_cocoa-12.2.2-cp311-cp311-macosx_10_9_universal2.whl"
+    },
+    {
+      "name": "pyro5-5.17-py3-none-any.whl",
+      "sha256": "0e08866d46fe4e315fd1a6403c66e354a6bc75c5cc3d19cd3495bb292ece4eaa",
+      "url": "https://files.pythonhosted.org/packages/24/62/878386c290088c6f614bf50e59c362e23c8aaa86de9a1d74d4ee67108736/pyro5-5.17-py3-none-any.whl"
+    },
+    {
+      "name": "pyside6-6.10.3-cp39-abi3-macosx_13_0_universal2.whl",
+      "sha256": "2d31695fcce3c89ffc621011c6409c0ba1930000d7172dea48994a7744205deb",
+      "url": "https://files.pythonhosted.org/packages/dc/7a/0423ed0ac2794ae082c2cb303490cde245c880df6d6e4bd2f42633cb97e7/pyside6-6.10.3-cp39-abi3-macosx_13_0_universal2.whl"
+    },
+    {
+      "name": "pyside6_addons-6.10.3-cp39-abi3-macosx_13_0_universal2.whl",
+      "sha256": "f2a2e3a7650cd1599996871da5bea76b7fb4b219bc2b4f7927739e86bc1fb9d9",
+      "url": "https://files.pythonhosted.org/packages/6b/ca/e898773690b41908d83b137e8ef08e3de7c6b22b5fdff3074bade12af2b3/pyside6_addons-6.10.3-cp39-abi3-macosx_13_0_universal2.whl"
+    },
+    {
+      "name": "pyside6_essentials-6.10.3-cp39-abi3-macosx_13_0_universal2.whl",
+      "sha256": "8d7e2b826ac7f043dbfff487552c220517003927f6cfa14ab6a4824e8623a686",
+      "url": "https://files.pythonhosted.org/packages/11/09/b14fae948aa38140079dd585c4c11fe42f12ef3be5a417603512547c232f/pyside6_essentials-6.10.3-cp39-abi3-macosx_13_0_universal2.whl"
+    },
+    {
+      "name": "QDarkStyle-3.2.3-py2.py3-none-any.whl",
+      "sha256": "ea980ee426d594909cf1058306832af71ff6cbad6f69237b036d1550635aefbc",
+      "url": "https://files.pythonhosted.org/packages/93/7d/c3c10498430dadcea4def5faddf71cd199e577d20a125e7ef1e9d7bdbbfa/QDarkStyle-3.2.3-py2.py3-none-any.whl"
+    },
+    {
+      "name": "qrcode-8.2-py3-none-any.whl",
+      "sha256": "16e64e0716c14960108e85d853062c9e8bba5ca8252c0b4d0231b9df4060ff4f",
+      "url": "https://files.pythonhosted.org/packages/dd/b8/d2d6d731733f51684bbf76bf34dab3b70a9148e8f2cef2bb544fccec681a/qrcode-8.2-py3-none-any.whl"
+    },
+    {
+      "name": "qtawesome-1.4.2-py3-none-any.whl",
+      "sha256": "dbf08524428fa2df73918ce362153254cd44f089380576d84bfaad8f40eece45",
+      "url": "https://files.pythonhosted.org/packages/25/b1/da1d826ccc9258674b26dd0abcbbb1c55cab06e7fbf2697518b67edc79fc/qtawesome-1.4.2-py3-none-any.whl"
+    },
+    {
+      "name": "QtPy-2.4.3-py3-none-any.whl",
+      "sha256": "72095afe13673e017946cc258b8d5da43314197b741ed2890e563cf384b51aa1",
+      "url": "https://files.pythonhosted.org/packages/69/76/37c0ccd5ab968a6a438f9c623aeecc84c202ab2fabc6a8fd927580c15b5a/QtPy-2.4.3-py3-none-any.whl"
+    },
+    {
+      "name": "requests-2.34.2-py3-none-any.whl",
+      "sha256": "2a0d60c172f83ac6ab31e4554906c0f3b3588d37b5cb939b1c061f4907e278e0",
+      "url": "https://files.pythonhosted.org/packages/a0/f4/c67b0b3f1b9245e8d266f0f112c500d50e5b4e83cb6f3b71b6528104182a/requests-2.34.2-py3-none-any.whl"
+    },
+    {
+      "name": "serpent-1.43-py3-none-any.whl",
+      "sha256": "7907f40151da126d57bbd675364d23898efa6b6601d79379cbae800236586b54",
+      "url": "https://files.pythonhosted.org/packages/96/b0/75745c948bc814d145cc46cb6da219c7acf3875822d47f08d6323ccf0458/serpent-1.43-py3-none-any.whl"
+    },
+    {
+      "name": "shiboken6-6.10.3-cp39-abi3-macosx_13_0_universal2.whl",
+      "sha256": "3827489c2b3059541a71678916716f2867eeeac8724adb6f82de6e69d1b5cfe8",
+      "url": "https://files.pythonhosted.org/packages/00/0d/ac1380fbb4d247be6b82931797826d8d18d59d96a48d8395d61cca0a4862/shiboken6-6.10.3-cp39-abi3-macosx_13_0_universal2.whl"
+    },
+    {
+      "name": "soupsieve-2.10-py3-none-any.whl",
+      "sha256": "8596eb8967d744174820280fa62b4542a2e955bfaccca73ed8a13c6eb8e9b502",
+      "url": "https://files.pythonhosted.org/packages/66/87/5ed59e1d0290564e2027ed066c52b059892c4637741337fc0967183c8d4d/soupsieve-2.10-py3-none-any.whl"
+    },
+    {
+      "name": "sqlalchemy-2.1.6-cp311-cp311-macosx_11_0_arm64.whl",
+      "sha256": "e4e4a43cde0dcdff974304ddb48246d6a094e618b6ee9642827ddbfe9fbebadb",
+      "url": "https://files.pythonhosted.org/packages/4b/e1/fca57b09555d90ed6f8ca043245d5205cb2269122acdf8eeee32176711d2/sqlalchemy-2.1.6-cp311-cp311-macosx_11_0_arm64.whl"
+    },
+    {
+      "name": "typing_extensions-4.16.0-py3-none-any.whl",
+      "sha256": "481caa481374e813c1b176ada14e97f1f67a4539ce9cfeb3f350d78d6370c2e8",
+      "url": "https://files.pythonhosted.org/packages/49/d3/b8441a820a491ddfc024b0b0cf0393375b75ea13866d9c66727e54c2fc80/typing_extensions-4.16.0-py3-none-any.whl"
+    },
+    {
+      "name": "urllib3-2.8.0-py3-none-any.whl",
+      "sha256": "0cf3cae568d36aa9576b28dfb35f11328f1cb974ca7647d9475ebb86c75ac6e3",
+      "url": "https://files.pythonhosted.org/packages/92/9d/c4e665119135114480843e7ab388fa94d8480650450e6f8e26b70d323a4c/urllib3-2.8.0-py3-none-any.whl"
+    },
+    {
+      "name": "waitress-3.0.2-py3-none-any.whl",
+      "sha256": "c56d67fd6e87c2ee598b76abdd4e96cfad1f24cacdea5078d382b1f9d7b5ed2e",
+      "url": "https://files.pythonhosted.org/packages/8d/57/a27182528c90ef38d82b636a11f606b0cbb0e17588ed205435f8affe3368/waitress-3.0.2-py3-none-any.whl"
+    },
+    {
+      "name": "websocket_client-1.9.2-py3-none-any.whl",
+      "sha256": "e1a673830a9c7bfa47b1cd3d5e4178f4c9651d80a4eab02c9c23a1c3ec6250ce",
+      "url": "https://files.pythonhosted.org/packages/d5/d2/cc4dc1271e464942db7ee278baae2daa99ee77cb2af744025c04da585a3e/websocket_client-1.9.2-py3-none-any.whl"
+    },
+    {
+      "name": "websockets-17.3-cp311-cp311-macosx_11_0_arm64.whl",
+      "sha256": "43f270a5f21e12db08c73d83849a877c02ab7b7d0fb6e2718b5101d9c810212f",
+      "url": "https://files.pythonhosted.org/packages/21/3d/5d0eaa9b29db6c999a2cf749605141796cff21a5e235b2488bd39dcdcac9/websockets-17.3-cp311-cp311-macosx_11_0_arm64.whl"
+    },
+    {
+      "name": "werkzeug-3.1.9-py3-none-any.whl",
+      "sha256": "6392e50c78460ba618e5b21f08a71f59c99ce99cdc6cf6e3dd7e6ccca8754fab",
+      "url": "https://files.pythonhosted.org/packages/a1/38/df03f564f43cec2684823f3cccae1a652ee7face1cbaa76fb223096e64d7/werkzeug-3.1.9-py3-none-any.whl"
+    },
+    {
+      "name": "py_applescript-1.0.3-py3-none-any.whl",
+      "sha256": "eb21dfc6e845a40be602372a5c3d6317f7ad3c999c2c355a00d1a19bdb1d57c0",
+      "url": "https://files.pythonhosted.org/packages/9b/f6/fed1fb7eb1603ad50accbb5c4e1f0c5f8f7d164acd2619f062d20c2a7858/py_applescript-1.0.3-py3-none-any.whl"
+    },
+    {
+      "name": "pyobjc_framework_applescriptkit-12.2.2-py2.py3-none-any.whl",
+      "sha256": "73bf591f02c33d50ee72e876de9afe767c5a35776ac0777e567bb24a0fb08d26",
+      "url": "https://files.pythonhosted.org/packages/d3/d3/648c25c045c10404b91dd670943574bee5f4d1e8c41c7917f4ec7c990b32/pyobjc_framework_applescriptkit-12.2.2-py2.py3-none-any.whl"
+    },
+    {
+      "name": "pyobjc_framework_applescriptobjc-12.2.2-py2.py3-none-any.whl",
+      "sha256": "862e3f31d3c1a955326b8f7556194ce6a7703246eec93aacc73892d5860df59e",
+      "url": "https://files.pythonhosted.org/packages/1a/44/a15a313c94d2e0f1793a71783120d0c1d5cf9d5f8e2a6c3f15f682b63cb1/pyobjc_framework_applescriptobjc-12.2.2-py2.py3-none-any.whl"
+    }
+  ],
+  "mac_launch_verified": false
+}

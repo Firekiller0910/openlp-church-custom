@@ -41,7 +41,7 @@ exec "$CONTENTS/Resources/runtime/bin/python3" -I "$CONTENTS/Resources/launch.py
 info={'CFBundleName':'OpenLP Custom','CFBundleDisplayName':'OpenLP Custom',
       'CFBundleIdentifier':'org.openlp.custom','CFBundleExecutable':'OpenLPCustom',
       'CFBundlePackageType':'APPL','CFBundleShortVersionString':'3.1.99',
-      'CFBundleVersion':'2026.10.21','LSMinimumSystemVersion':'13.0',
+      'CFBundleVersion':'2026.10.25','LSMinimumSystemVersion':'13.0',
       'CFBundleIconFile':'OpenLP.icns','NSHighResolutionCapable':True,
       'NSRequiresAquaSystemAppearance':False,
       'NSAppleEventsUsageDescription':'OpenLP controls Keynote and PowerPoint to present your slides.',

@@ -1,0 +1,86 @@
+name: Build and publish Mac installer
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/publish-macos.yml
+      - packaging/**
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-macos
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    container: debian:trixie
+    timeout-minutes: 30
+    defaults:
+      run:
+        shell: bash
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
+    steps:
+      - name: Install packaging tools
+        run: |
+          apt-get update
+          apt-get install -y ca-certificates git python3 gh xar cpio pigz g++ make
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Build BOM tools
+        run: |
+          git clone https://github.com/hogliux/bomutils.git /tmp/bomutils
+          git -C /tmp/bomutils checkout c247002e2f49878bab32dd0fcf805810ae0992cb
+          git -C /tmp/bomutils apply "$GITHUB_WORKSPACE/packaging/bomutils-hidden-files.patch"
+          make -C /tmp/bomutils -j2
+      - name: Download and verify Mac runtime
+        run: python3 packaging/prepare_macos_release.py
+      - name: Assemble app and installer
+        run: |
+          mkdir -p outputs/OpenLP-Test/source-modern
+          git archive HEAD | tar -x -C outputs/OpenLP-Test/source-modern
+          printf '3.1.99' > outputs/OpenLP-Test/source-modern/openlp/.version
+          python3 packaging/package_macos.py
+          python3 packaging/build_macos_installer.py \
+            outputs/OpenLP-Custom-macOS-Apple-Silicon.zip build/mac-installer \
+            outputs/OpenLP-Custom-macOS-Apple-Silicon-Installer.pkg \
+            --mkbom /tmp/bomutils/build/bin/mkbom --compressor pigz
+      - name: Publish verified Mac downloads
+        run: |
+          set -euo pipefail
+          release=v0.1.0-custom
+          mkdir -p build/release-metadata
+          gh release download "$release" --pattern OpenLP-Package-Checksums.txt --dir build/release-metadata
+          gh release view "$release" --json body --jq .body > build/release-metadata/notes.md
+          python3 - <<'PY'
+          import hashlib
+          from pathlib import Path
+          output = Path('outputs')
+          lines = []
+          for path in sorted(output.glob('OpenLP-Custom-macOS-*')):
+              with path.open('rb') as stream:
+                  digest = hashlib.file_digest(stream, 'sha256').hexdigest()
+              lines.append(f'{digest}  {path.name}')
+          (output / 'SHA256SUMS.txt').write_text('\n'.join(lines) + '\n')
+          checksums = Path('build/release-metadata/OpenLP-Package-Checksums.txt')
+          existing = [line for line in checksums.read_text().splitlines() if 'OpenLP-Custom-macOS-' not in line]
+          checksums.write_text('\n'.join(existing + lines) + '\n')
+          notes = Path('build/release-metadata/notes.md')
+          text = notes.read_text().replace(
+              'download OpenLP-Custom-macOS-Apple-Silicon.zip, unzip it and move OpenLP Custom.app to Applications.',
+              'download OpenLP-Custom-macOS-Apple-Silicon-Installer.pkg and follow Installer to install into Applications. The ZIP is available as an alternative.')
+          marker = '## Mac remote and Keynote update'
+          if marker not in text:
+              text += '\n' + marker + '\n\nRemote servers are enabled and Keynote automation libraries are bundled. The .pkg installs into /Applications and preserves your existing songs/settings. Requires Apple silicon and macOS 13+. Unsigned and unnotarized; native installation and Keynote automation still need Mac testing.\n'
+          notes.write_text(text)
+          PY
+          # Publish the new installer first; it provides a usable download before replacing the ZIP.
+          gh release upload "$release" outputs/OpenLP-Custom-macOS-Apple-Silicon-Installer.pkg --clobber
+          gh release upload "$release" outputs/OpenLP-Custom-macOS-Apple-Silicon.zip --clobber
+          gh release upload "$release" outputs/SHA256SUMS.txt build/release-metadata/OpenLP-Package-Checksums.txt --clobber
+          gh release edit "$release" --notes-file build/release-metadata/notes.md
