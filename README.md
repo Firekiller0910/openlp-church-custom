@@ -4,12 +4,12 @@ A customized OpenLP with a navy interface, remembered hidden song slides, the up
 
 ## Install on another computer
 
-**[Download for Windows](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-Windows-Setup.exe)** · **[Download for Apple silicon Mac](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-macOS-Apple-Silicon.zip)** · **[All releases and instructions](https://github.com/Firekiller0910/openlp-church-custom/releases)**
+**[Download for Windows](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-Windows-Setup.exe)** · **[Download for Apple silicon Mac](https://github.com/Firekiller0910/openlp-church-custom/releases/latest/download/OpenLP-Custom-macOS-Apple-Silicon-Installer.pkg)** · **[All releases and instructions](https://github.com/Firekiller0910/openlp-church-custom/releases)**
 
 Sign into your GitHub account to access this private repository and its downloads. Choose the package for your computer:
 
 - **OpenLP-Custom-Windows-Setup.exe**: normal Windows installer. Run it and follow setup.
-- **OpenLP-Custom-macOS-Apple-Silicon.zip**: unzip on an Apple silicon Mac and move the app to Applications. Requires macOS 13+. This unsigned Mac package still needs testing on a Mac.
+- **OpenLP-Custom-macOS-Apple-Silicon-Installer.pkg**: quit OpenLP, open the installer, and follow setup to install the app into Applications. Requires an Apple silicon Mac and macOS 13+. Your songs/settings stay in Application Support. The ZIP remains available as an alternative. This unsigned Mac package still needs native testing on a Mac.
 
 The packages include Python and Qt. Windows packages have been launch-tested; installers are unsigned. Computer-specific settings, songs, services, OBS passwords and CCLI sessions are not included. Transfer your own songs/services separately.
 
