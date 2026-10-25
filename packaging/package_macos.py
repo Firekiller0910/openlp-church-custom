@@ -44,6 +44,7 @@ info={'CFBundleName':'OpenLP Custom','CFBundleDisplayName':'OpenLP Custom',
       'CFBundleVersion':'2026.10.21','LSMinimumSystemVersion':'13.0',
       'CFBundleIconFile':'OpenLP.icns','NSHighResolutionCapable':True,
       'NSRequiresAquaSystemAppearance':False,
+      'NSAppleEventsUsageDescription':'OpenLP controls Keynote and PowerPoint to present your slides.',
       'LSArchitecturePriority':['arm64']}
 written=set()
 def write_bytes(z,name,data,mode=stat.S_IFREG|0o644):
@@ -61,6 +62,10 @@ def add_file(z,path,name,mode=stat.S_IFREG|0o644):
 
 wheels=sorted((work/'mac-wheels').glob('*.whl'))
 assert len(wheels)>25, 'Mac dependency download is incomplete'
+for dependency in ('py_applescript', 'pyobjc_core', 'pyobjc_framework_cocoa',
+                   'pyobjc_framework_applescriptkit', 'pyobjc_framework_applescriptobjc'):
+ assert any(w.name.lower().startswith(dependency + '-') for w in wheels), \
+  'Keynote support requires ' + dependency + ' in mac-wheels'
 with zipfile.ZipFile(output,'w',zipfile.ZIP_DEFLATED,compresslevel=6,allowZip64=True) as z:
  write_bytes(z,'READ ME - Mac.txt',readme.encode())
  write_bytes(z,app+'Contents/Info.plist',plistlib.dumps(info))

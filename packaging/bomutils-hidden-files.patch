@@ -1,0 +1,24 @@
+diff --git a/src/printnode.cpp b/src/printnode.cpp
+--- a/src/printnode.cpp
++++ b/src/printnode.cpp
+@@ -78,7 +78,7 @@ void print_node( ostream & output, const string & base, const string & system_path,
+     DIR * d = opendir( fullpath.c_str() );
+     struct dirent * dir;
+     while ( ( dir = readdir( d ) ) != NULL ) {
+-      if ( dir->d_name[0] != '.' ) {
++      if ( string(dir->d_name) != "." && string(dir->d_name) != ".." ) {
+         string new_path(path);
+         new_path += string( "/" ) + string( dir->d_name );
+ #if defined(WINDOWS)
+diff --git a/src/lsbom.cpp b/src/lsbom.cpp
+--- a/src/lsbom.cpp
++++ b/src/lsbom.cpp
+@@ -271,7 +271,7 @@ int main(int argc, char **argv) {
+ 
+       DEBUG(2, "BOMVar 0x" << hex << ntohl(var->index) << ' ' << name << ':');
+ 
+-      if (strstr(name.c_str(),"Paths") == 0) {
++      if (strcmp(name.c_str(), "Paths") == 0) {
+         BOMPaths *paths = (BOMPaths *)lookup(tree->child);
+ 
+         typedef map<uint32_t, string> filenames_t;

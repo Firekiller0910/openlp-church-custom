@@ -63,7 +63,7 @@ try:
         original_server_init(self)
         self.id = 'OpenLP-Custom-Edition'
     Server.__init__ = custom_server_init
-    sys.argv = ['OpenLP Custom', '--portable', '--portable-path', str(data), '--no-web-server']
+    sys.argv = ['OpenLP Custom', '--portable', '--portable-path', str(data)]
     main()
 except Exception:
     traceback.print_exc()
