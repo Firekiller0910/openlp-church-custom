@@ -22,7 +22,7 @@ Based on OpenLP upstream commit `19b5f21f167dd4ebf981ccb92a7e1c9edd853c30` ("Fix
 ## Operator tools
 
 - Use the eye button to hide/unhide song pages. Choices persist for future services.
-- The OBS icon is green for a connected active integration and red otherwise. Click to test saved connection settings. This does not verify the outgoing stream.
+- The OBS icon is green when connected or when the connection test can reach OBS, and red when unavailable or not checked. Click it to test saved settings; it then rechecks every 15 seconds. The tooltip shows whether slide integration is enabled. This does not verify the outgoing stream.
 - Tools → Ready for Sunday checks service content, media, backgrounds, and unsaved edits.
 - Tools → Back up now creates a manual local backup. No automatic backups run.
 

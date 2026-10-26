@@ -7,6 +7,7 @@ on:
     paths:
       - .github/workflows/publish-macos.yml
       - packaging/**
+      - openlp/**
 
 permissions:
   contents: write
@@ -77,6 +78,8 @@ jobs:
           marker = '## Mac remote and Keynote update'
           if marker not in text:
               text += '\n' + marker + '\n\nRemote servers are enabled and Keynote automation libraries are bundled. The .pkg installs into /Applications and preserves your existing songs/settings. Requires Apple silicon and macOS 13+. Unsigned and unnotarized; native installation and Keynote automation still need Mac testing.\n'
+          if '## OBS status light update' not in text:
+              text += '\n## OBS status light update\n\nA successful OBS connection test turns the indicator green. Failed rechecks turn it red, and checks repeat every 15 seconds after the first manual test. The tooltip distinguishes reachability from enabled slide integration.\n'
           notes.write_text(text)
           PY
           # Publish the new installer first; it provides a usable download before replacing the ZIP.

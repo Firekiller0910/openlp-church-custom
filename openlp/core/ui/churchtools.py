@@ -6,6 +6,7 @@ from pathlib import Path
 import sqlite3
 import tempfile
 import threading
+import time
 import zipfile
 
 from PySide6 import QtCore, QtGui, QtWidgets
@@ -105,7 +106,7 @@ def create_backup(data_path, settings_path, service_path=None, force=False):
 
 class ChurchTools(QtCore.QObject):
     backup_done = QtCore.Signal(str, bool)
-    obs_done = QtCore.Signal(str)
+    obs_done = QtCore.Signal(str, bool)
 
     def __init__(self, window):
         super().__init__(window)
@@ -113,6 +114,12 @@ class ChurchTools(QtCore.QObject):
         self.backup_busy = False
         self.obs_busy = False
         self.obs_result = ''
+        self.obs_reachable = None
+        self.obs_monitoring = False
+        self.obs_next_check = 0
+        self.obs_result_settings = None
+        self.obs_testing_settings = None
+        self.obs_show_result = True
         self.backup_done.connect(self.on_backup_done)
         self.obs_done.connect(self.on_obs_done)
         for title, callback in [('Ready for Sunday', self.readiness), ('Back up now', lambda: self.backup(True)),
@@ -163,24 +170,48 @@ class ChurchTools(QtCore.QObject):
                 return getattr(plugin, 'message_listener', None)
         return None
 
+    @staticmethod
+    def obs_settings():
+        settings = Registry().get('settings')
+        return tuple(settings.value('obs_studio/' + key) for key in ('host', 'port', 'password'))
+
     def refresh_obs(self):
         listener = self.listener()
+        current_settings = self.obs_settings()
+        if self.obs_result_settings != current_settings:
+            self.obs_reachable = None
+            self.obs_result = ''
+            self.obs_result_settings = current_settings
+            self.obs_next_check = 0
+        active = bool(listener and listener.is_active)
+        connected = bool(active and listener.is_connected)
+        reachable = self.obs_reachable if self.obs_reachable is not None else connected
         if self.obs_busy:
             text = 'Testing…'
-        elif listener and listener.is_active:
-            text = 'Connected' if listener.is_connected else (self.obs_result or 'Disconnected')
+        elif self.obs_reachable is True:
+            text = 'Connected' if connected else 'Reachable'
+        elif self.obs_reachable is False:
+            text = self.obs_result
+        elif active:
+            text = 'Connected' if connected else 'Disconnected'
         else:
             text = 'Disabled'
-        connected = bool(listener and listener.is_active and listener.is_connected)
-        self.obs_button.setIcon(self._obs_icons['connected' if connected else 'disconnected'])
+        self.obs_button.setIcon(self._obs_icons['connected' if reachable else 'disconnected'])
         self.obs_button.setAccessibleName('OBS: ' + text)
-        self.obs_button.setToolTip('OBS: ' + text + '\nGreen: connected. Red: not connected.\nClick to test the saved OBS settings.')
+        integration = 'Slide integration is enabled.' if active else 'Slide integration is disabled.'
+        self.obs_button.setToolTip('OBS: ' + text + '\nGreen: connected or reachable. Red: unavailable or not checked.\n' +
+                                  integration + '\nClick to test; connection checks then repeat every 15 seconds. '
+                                  'This does not verify the outgoing stream.')
+        if self.obs_monitoring and not self.obs_busy and time.monotonic() >= self.obs_next_check:
+            self.test_obs(automatic=True)
 
-    def test_obs(self):
+    def test_obs(self, checked=False, *, automatic=False):
         if self.obs_busy:
             return
-        settings = Registry().get('settings')
-        host, port, password = [settings.value('obs_studio/' + key) for key in ('host', 'port', 'password')]
+        self.obs_testing_settings = self.obs_settings()
+        host, port, password = self.obs_testing_settings
+        self.obs_monitoring = True
+        self.obs_show_result = not automatic
         self.obs_busy = True
         self.refresh_obs()
         def run():
@@ -189,23 +220,33 @@ class ChurchTools(QtCore.QObject):
             try:
                 client = ObsStudioAPI(host, int(port), password)
                 result = 'Test passed (reachable)'
+                success = True
             except Exception as error:
                 log.warning('OBS connection test failed: %s', error)
                 result = 'Test failed — check OBS settings'
+                success = False
             finally:
                 if client:
                     try:
                         client.disconnect()
                     except Exception:
                         log.debug('OBS test socket cleanup failed', exc_info=True)
-            self.obs_done.emit(result)
+            self.obs_done.emit(result, success)
         threading.Thread(target=run, daemon=True, name='OBS connection test').start()
 
-    def on_obs_done(self, result):
+    def on_obs_done(self, result, success):
         self.obs_busy = False
+        if self.obs_testing_settings != self.obs_settings():
+            self.obs_next_check = 0
+            self.refresh_obs()
+            return
         self.obs_result = result
+        self.obs_reachable = success
+        self.obs_result_settings = self.obs_testing_settings
+        self.obs_next_check = time.monotonic() + 15
         self.refresh_obs()
-        self.window.status_bar.showMessage(result, 15000)
+        if self.obs_show_result:
+            self.window.status_bar.showMessage(result, 15000)
 
     def readiness(self):
         manager = self.window.service_manager_contents
