@@ -299,7 +299,7 @@ class SlideController(QtWidgets.QWidget, LogMixin, RegistryProperties):
                                               text=translate('OpenLP.SlideController', 'Show Black'),
                                               icon=UiIcons().get_icon_variant_selected('live_black'),
                                               checked=False, can_shortcuts=True, category=self.category,
-                                              triggers=self.on_toggle_blank)
+                                              triggers=self.on_blank_display)
             self.desktop_screen = create_action(self, 'desktopScreen',
                                                 text=translate('OpenLP.SlideController', 'Show Desktop'),
                                                 icon=UiIcons().get_icon_variant_selected('live_desktop'),
